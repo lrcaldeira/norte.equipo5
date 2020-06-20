@@ -50,10 +50,11 @@ a {
 /* Header */
 #header {
     height: 140px;
-    width:unset;
-    background: url('/content/img/Galeria.jpg') no-repeat left top;
-
- 
+    background: url('/content/img/Galeria.jpg') no-repeat center;
+    background-size: cover;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /**** Logo ****/
