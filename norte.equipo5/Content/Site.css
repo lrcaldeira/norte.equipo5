@@ -44,7 +44,7 @@ a {
 
 #wrapper {
     width: 900px;
-    margin: 0 auto;
+    margin: 0px auto;
 }
 
 /* Header */
@@ -60,18 +60,15 @@ a {
 /**** Logo ****/
 #logo {
     float: left;
-    width: 270px;
-    height: 70px;
-    margin: 0px;
-    padding-left: 30px;
-    text-align: center;
+    padding-top: 65px;
+    padding-left: 15px;
+    text-align: left;
 }
 
     #logo h1 {
         margin: 0;
         padding: 10px 0px 0px 0px;
-        text-transform: lowercase;
-        font: normal 46px 'Open Sans', Arial, sans-serif;
+        font:  46px 'Open Sans', Arial, sans-serif;
     }
 
     #logo h2 {
@@ -92,11 +89,10 @@ a {
 
 /**** Menu ****/
 #menu {
-    width: 872px;
+    width: 100% ;
     height: 41px;
     margin: 0 auto;
-    padding: 0px 0px 0px 28px;
-    background: url('/content/img/menu.jpg') no-repeat left top;
+    /*background: url('/content/img/menu.jpg') no-repeat left top;*/
 }
 
     #menu ul {
