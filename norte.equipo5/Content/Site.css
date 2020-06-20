@@ -50,9 +50,10 @@ a {
 /* Header */
 #header {
     height: 140px;
-    background: url('/content/img/Principal.jpg') no-repeat left top;
+    width:unset;
+    background: url('/content/img/Galeria.jpg') no-repeat left top;
 
-    image-resolution:initial;
+ 
 }
 
 /**** Logo ****/
