@@ -42,10 +42,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Artista.cs" />
+    <Compile Include="Model\Obra.cs" />
     <Compile Include="Model\TipoEstilo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IArtistaData.cs" />
     <Compile Include="Services\InMemoryArtistaData.cs" />
+    <Compile Include="Services\InMemoryObraData.cs" />
+    <Compile Include="Services\IObraData.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
