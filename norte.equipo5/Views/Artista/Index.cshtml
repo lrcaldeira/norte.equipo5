@@ -1,0 +1,27 @@
+﻿@model IEnumerable<norte.equipo5.Data.Model.Artista>
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="post">
+    <h2 class="title"><a href="#">Lista de Artistas</a></h2>
+    <p class="byline">Hay un total de: @Enumerable.Count(Model) Artistas</p>
+    <div class="entry">
+        <p>
+    
+        </p>
+    </div>
+
+    <div>
+        <h2 class="categories"> Artistas</h2>
+        <ul>
+            @foreach (var item in Model)
+            {
+            <li>
+                @item.Apellido
+            </li>
+            }
+        </ul>
+    </div>
+</div>
