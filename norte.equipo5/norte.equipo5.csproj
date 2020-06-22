@@ -170,6 +170,7 @@
     <Compile Include="Controllers\ArtistaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ObraController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -180,10 +181,25 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\contacto.css" />
+    <Content Include="Content\img\Artistas\autorretrato-van-gogh-bn.jpg" />
+    <Content Include="Content\img\Artistas\foto-claude-monet.jpg" />
+    <Content Include="Content\img\Artistas\foto-p-a-renoir.jpg" />
+    <Content Include="Content\img\Artistas\foto-pablo-ruiz-picasso.jpg" />
+    <Content Include="Content\img\Artistas\retrato-de-francisco-goya-por-vicente-lopez.jpg" />
+    <Content Include="Content\img\Artistas\salvador-dali.jpg" />
+    <Content Include="Content\img\Obras\almuerzo-de-remeros-renoir.jpg" />
+    <Content Include="Content\img\Obras\campo-amapolas-monet.jpg" />
+    <Content Include="Content\img\Obras\campo-trigo-van-gogh.jpg" />
     <Content Include="Content\img\Galeria.jpg" />
+    <Content Include="Content\img\Obras\jardin-giverny-monet.jpg" />
+    <Content Include="Content\img\Obras\la-grenouillere-renoir.jpg" />
+    <Content Include="Content\img\Obras\la-scapigliata-da-vinci.jpg" />
+    <Content Include="Content\img\Obras\persistencia-memoria-dali-obra.jpg" />
     <Content Include="Content\img\Picasso\Picasso-Niño con Paloma.jpg" />
     <Content Include="Content\img\Principal.jpg" />
+    <Content Include="Content\img\Obras\senoritas-avignon-picasso.jpg" />
+    <Content Include="Content\img\Obras\torero-alucinogeno-dali.jpg" />
+    <Content Include="Content\img\Obras\ultima-cena-reproduccion.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -235,6 +251,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Artista\Index.cshtml" />
+    <Content Include="Views\Obra\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
