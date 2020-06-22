@@ -1,17 +1,28 @@
 ﻿@{
-    ViewBag.Title = "Contact";
+    ViewBag.Title = "Contacto";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<link href="~/Content/contacto.css" rel="stylesheet" />
+<h2>@ViewBag.Title</h2>
+
+<form id="formContact">
+    <div class="contactColumn">
+        <input type="text" id="nombreContacto" placeholder="Nombre" maxlength="50"><br />
+        <input type="text" id="emailContacto" placeholder="E-Mail" maxlength="100"><br />
+    </div>
+    <div class="contactColumn">
+        <input type="text" id="apellidoContacto" placeholder="Apellido" maxlength="100"><br />
+        <input type="text" id="telefonoContacto" placeholder="Teléfono" maxlength="10"><br />
+    </div>
+    <div class="textareaContainer">
+        <textarea id="comentarioContacto" cols="54" placeholder="Comentarios..."></textarea>
+        <input type="submit" id="enviarInformacion" value="Enviar comentarios">
+    </div>
+    
+</form>
 
 <address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
-
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
+    <br /><br /><br />
+    Norte Equipo 5<br />
+    Direccion, UAI<br />
+    Teléfono: 123123123123
 </address>

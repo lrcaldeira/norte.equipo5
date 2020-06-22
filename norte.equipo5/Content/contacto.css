@@ -1,0 +1,50 @@
+﻿#titleForm {
+    font-size: 20px;
+    width:560px;
+}
+
+.contactColumn {
+    width: 50%;
+    float: left;
+}
+
+.contactColumn input {
+    width:250px;
+    display: block;
+    border: 1px solid #52231b;
+    padding-top:4px;
+    padding-bottom:4px;
+    font-style: italic;
+    outline-width: 0;
+}
+textarea {
+    width: 530px;
+    height: 100px;
+    resize: none;
+    float: left;
+    border: 1px solid #52231b;
+    font: italic 400 13.3333px Arial;
+    outline-width: 0;
+}
+
+.textareaContainer{
+    display:block;
+}
+
+
+.textareaContainer #enviarInformacion {
+    margin-top: 10px;
+    text-align: center;
+    width: 535px;
+    height: 25px;
+    border: 1px solid #52231b;
+    color: white;
+    background: #C11212;
+    outline-width: 0;
+}
+
+    .textareaContainer #enviarInformacion:active {
+        margin-top: 10px;
+        text-align: center;
+        border: 1px solid #52231b;
+    }

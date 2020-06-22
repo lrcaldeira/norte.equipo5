@@ -12,6 +12,7 @@ body {
     font-size: 13px;
     font-style: italic;
     color: #7D807A;
+    width: 100%;
 }
 
 h1, h2, h3 {
@@ -68,7 +69,7 @@ a {
     #logo h1 {
         margin: 0;
         padding: 10px 0px 0px 0px;
-        font:  46px 'Open Sans', Arial, sans-serif;
+        font: 46px 'Open Sans', Arial, sans-serif;
     }
 
     #logo h2 {
@@ -89,10 +90,10 @@ a {
 
 /**** Menu ****/
 #menu {
-    width: 100% ;
+    width: 100%;
     height: 41px;
     margin: 0 auto;
-    /*background: url('/content/img/menu.jpg') no-repeat left top;*/
+    background-color: #52231b;
 }
 
     #menu ul {
@@ -113,17 +114,21 @@ a {
         padding: 8px 20px 0px 20px;
         text-decoration: none;
         text-align: center;
-        text-transform: lowercase;
         font-family: 'Open Sans', Arial, sans-serif;
         font-size: 14px;
         font-weight: normal;
         font-style: italic;
         color: #FFFFFF;
+        text-shadow: 0 0 2px #ffffff;
     }
 
-        #menu a:hover, #menu .active a {
-            background: #C11212;
-            color: #FFFFFF;
+
+        #menu a:hover {
+            background-color: #9d3429;
+        }
+
+        #menu a:active {
+            background-color: #9d3429;
         }
 
 #page {
@@ -174,7 +179,6 @@ a {
         padding-left: 40px;
         font-size: 12px;
         font-style: italic;
-        text-transform: lowercase;
         color: #7D807A;
     }
 
@@ -289,3 +293,6 @@ a {
         #footer a:hover {
             text-decoration: none;
         }
+address {
+    clear: both;
+}

@@ -180,6 +180,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\contacto.css" />
     <Content Include="Content\img\Galeria.jpg" />
     <Content Include="Content\img\Picasso\Picasso-Niño con Paloma.jpg" />
     <Content Include="Content\img\Principal.jpg" />
