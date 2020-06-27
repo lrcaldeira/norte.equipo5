@@ -10,5 +10,6 @@ namespace norte.equipo5.Data.Services
     public interface IArtistaData
     {
         IEnumerable<Artista> GetAll();
+        Artist GetById(int id);
     }
 }
