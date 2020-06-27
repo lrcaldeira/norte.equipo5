@@ -8,7 +8,7 @@
 <div class="post">
     <h2 class="title"><a href="#"> Editar Artista</a></h2>
     <p class="byline">
-        <h4>Profesional: @Model.FullName</h4>
+        <h4>Artista: @Model.FullName</h4>
     </p>
     <div>
         @using (Html.BeginForm())
@@ -24,7 +24,7 @@
                     @Html.LabelFor(model => model.FirstName)
                     <div>
                         @Html.EditorFor(model => model.FirstName)
-                        @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                       
                     </div>
                 </div>
 
@@ -32,7 +32,7 @@
                     @Html.LabelFor(model => model.LastName)
                     <div>
                         @Html.EditorFor(model => model.LastName)
-                        @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                     
                     </div>
                 </div>
 
