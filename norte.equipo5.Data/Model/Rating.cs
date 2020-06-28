@@ -9,6 +9,7 @@ namespace norte.equipo5.Data.Model
 {
     public class Rating:IdentityBase
     {
+
         [ForeignKey("User")]
         public int UserId { get; set; }
 

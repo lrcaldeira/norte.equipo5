@@ -8,10 +8,12 @@ namespace norte.equipo5.Data.Model
 {
     public class Cart:IdentityBase
     {
+
         public Cart()
         {
             this.CartItems = new HashSet<CartItem>();
         }
+
         public string Cookie { get; set; }
         public DateTime CartDate { get; set; }
         public int ItemCount { get; set; }

@@ -15,7 +15,9 @@ namespace norte.equipo5.Data.Model
 
         [ForeignKey("Product")]
         public int ProductId { get; set; }
+
         public decimal Price { get; set; }
+
         public int Quantity { get; set; }
 
         public virtual ICollection<Product> Products { get; set; }

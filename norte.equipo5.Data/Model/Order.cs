@@ -14,6 +14,7 @@ namespace norte.equipo5.Data.Model
         {
             this.OrderDetails = new HashSet<OrderDetail>();
         }
+
         [ForeignKey("User")]
         public int UserId { get; set; }
         public DateTime OrderDate { get; set; }

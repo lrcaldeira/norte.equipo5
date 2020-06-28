@@ -8,6 +8,7 @@ namespace norte.equipo5.Data.Model
 {
     public class OrderNumber:IdentityBase
     {
+
         public int Number { get; set; }
 
     }
