@@ -58,8 +58,8 @@ namespace norte.equipo5.Data.Services
                     query = orderFunction(query);
                 }
 
-                return query.ToList();
-            }
+                return null;  /*Acá debe ir esto: return query.ToList();*/
+        }
 
             public virtual T GetById(int id)
             {

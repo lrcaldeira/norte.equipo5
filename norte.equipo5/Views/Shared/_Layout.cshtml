@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" />
-    <link href="~/Content/Site.css" rel="stylesheet" />
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -18,10 +17,10 @@
             </div>
         </header>
         <nav id="menu">
-            <ul>
+            <ul class="MenuSelector">
                 <li><a href="/">Home</a></li>
                 <li><a href="/Artist/Index/">Artistas</a></li>
-                <li><a href="/Product/Index"> Productos</a></li>
+                <li><a href="/Product/Index">Productos</a></li>
                 <li><a href="/home/about/">Acerca</a></li>
                 <li><a href="/home/contact/">Contacto</a></li>
             </ul>
@@ -66,6 +65,17 @@
 
     @Scripts.Render("~/bundles/jquery")
     @RenderSection("scripts", required: false)
+    <script>
+    
+        $(document).ready(function () {
+            $('.MenuSelector li').each(function () {
+                $(this).find("a").removeClass('selectedMenu');
+            });
+
+            $('.MenuSelector li').click(function () {
+                $(this).find("a").addClass('selectedMenu');
+            });
+        });</script>
 
 </body>
 </html>

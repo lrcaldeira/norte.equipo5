@@ -1,4 +1,4 @@
-﻿﻿ /*IMPORTANTE - No modificar estos estilos, ya que son imprescindibles para que la pagina se vea correctamente.*/
+﻿/*IMPORTANTE - No modificar estos estilos, ya que son imprescindibles para que la pagina se vea correctamente.*/
 * {
     margin: 0;
     padding: 0;
@@ -123,13 +123,17 @@ a {
     }
 
 
-        #menu a:hover {
-            background-color: #9d3429;
-        }
+    #menu a:hover {
+        background-color: #9d3429;
+    }
 
-        #menu a:active {
-            background-color: #9d3429;
-        }
+    #menu a:active {
+        background-color: #D2695E;
+    }
+
+    .selectedMenu {
+        background-color: greenyellow;
+    }
 
 #page {
     width: 844px;
