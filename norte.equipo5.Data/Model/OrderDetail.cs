@@ -11,10 +11,10 @@ namespace norte.equipo5.Data.Model
     public class OrderDetail:IdentityBase
     {
 
-        [ForeignKey ("Order")]
+        //[ForeignKey ("Order")]
         public int OrderId { get; set; }
 
-        [ForeignKey ("Product")]
+        //[ForeignKey ("Product")]
         public int ProductId { get; set; }
 
         public decimal Price { get; set; }

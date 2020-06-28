@@ -19,6 +19,7 @@ namespace norte.equipo5.Data.Model
 
         public DateTime ChangedOn { get; set; }
 
+
         public string ChangedBy { get; set; }
     }
 }

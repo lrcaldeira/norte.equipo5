@@ -22,7 +22,7 @@ namespace norte.equipo5.Data.Model
 
         public DateTime SingupDate { get; set; }
 
-        [ForeignKey("OrderNumber")]
+        //[ForeignKey("OrderNumber")]
         public int OrderCount { get; set; }
     }
 }

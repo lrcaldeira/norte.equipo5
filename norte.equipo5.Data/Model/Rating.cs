@@ -10,10 +10,10 @@ namespace norte.equipo5.Data.Model
     public class Rating:IdentityBase
     {
 
-        [ForeignKey("User")]
+        //[ForeignKey("User")]
         public int UserId { get; set; }
 
-        [ForeignKey("Product")]
+        //[ForeignKey("Product")]
         public int ProductId { get; set; }
         public int Stars { get; set; }
     }
