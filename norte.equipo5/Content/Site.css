@@ -131,9 +131,9 @@ a {
         background-color: #D2695E;
     }
 
-    .selectedMenu {
-        background-color: greenyellow;
-    }
+.selectedMenu {
+    background-color: #D2695E;
+}
 
 #page {
     width: 844px;
@@ -329,3 +329,28 @@ address {
         background-color: #C11212;
         color: #fafafa;
     }
+
+img {
+    height: 180px;
+    margin-right: 4px;
+    border: 2px solid #9d3429;
+}
+
+.container {
+
+    width: 100%;
+
+}
+
+.column {
+
+    width: 33%;
+    float: left;
+}
+
+.botonesGaleria{
+
+    margin-left: 35px;
+    margin-bottom: 5px;
+
+}
