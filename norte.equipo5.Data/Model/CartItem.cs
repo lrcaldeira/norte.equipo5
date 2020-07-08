@@ -10,15 +10,12 @@ namespace norte.equipo5.Data.Model
     public class CartItem:IdentityBase
     {
    
-        //[ForeignKey ("Cart")]
+  
         public int CartId { get; set; }
         
-       
-
-        //[ForeignKey("Product")]
         public int ProductId { get; set; }
 
-        public decimal Price { get; set; }
+        public double Price { get; set; }
 
         public int Quantity { get; set; }
 

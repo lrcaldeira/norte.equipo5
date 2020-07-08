@@ -16,14 +16,11 @@ namespace norte.equipo5.Controllers
     [Authorize]
     public class ArtistController : BaseController
     {
-        BaseDataService<Artist> db;
-        public ArtistController()
-        {
-            db = new BaseDataService<Artist>();
-        }
+        private readonly BaseDataService<Artist> MyContext = new BaseDataService<Artist>();
+        private readonly GaleriaDBContext db = new GaleriaDBContext();
         public ActionResult Index()
         {
-            var list = db.Get();
+            var list = MyContext.Get();
             return View(list);
         }
 
@@ -37,12 +34,12 @@ namespace norte.equipo5.Controllers
         public ActionResult Create(Artist artist)
         {
             this.CheckAuditPattern(artist, true);
-            var listModel = db.ValidateModel(artist);
+            var listModel = MyContext.ValidateModel(artist);
             if (ModelIsValid(listModel))
                 return View(artist);
             try
             {
-                db.Create(artist);
+                MyContext.Create(artist);
                 return RedirectToAction("Index");
 
             }
@@ -64,7 +61,7 @@ namespace norte.equipo5.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var artist = db.GetById(id.Value);
+            var artist = MyContext.GetById(id.Value);
             if (artist == null)
             {
                 return HttpNotFound();
@@ -76,12 +73,12 @@ namespace norte.equipo5.Controllers
         public ActionResult Edit(Artist artist, object Logger)
         {
             this.CheckAuditPattern(artist);
-            var listModel = db.ValidateModel(artist);
+            var listModel = MyContext.ValidateModel(artist);
             if (ModelIsValid(listModel))
                 return View(artist);
             try
             {
-                db.Update(artist);
+                MyContext.Update(artist);
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
@@ -100,7 +97,7 @@ namespace norte.equipo5.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var artist = db.GetById(id.Value);
+            var artist = MyContext.GetById(id.Value);
             if (artist == null)
             {
                 return HttpNotFound();
@@ -108,20 +105,30 @@ namespace norte.equipo5.Controllers
             return View(artist);
         }
 
-        [HttpPost]
-        public ActionResult Delete(Artist artist)
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int id)
         {
-            try
+            var artist = db.Artist.Find(id);
+
+            if (artist == null)
             {
-                db.Delete(artist);
-                return RedirectToAction("Index");
+
+                return HttpNotFound();
             }
-            catch (Exception ex)
-            {
-                Logger.Instance.LogException(ex);
-                ViewBag.MessageDanger = ex.Message;
-                return View(artist);
-            }
+            db.Artist.Remove(artist);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
+               
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
     }
 }

@@ -5,6 +5,8 @@ using norte.equipo5.Data.Services;
 using norte.equipo5.Services;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -15,82 +17,95 @@ namespace norte.equipo5.Controllers
 {
     public class ProductController : BaseController
     {
-      
-        BaseDataService<Product> db;
-        public ProductController()
-        {
-            db = new BaseDataService<Product>();
-        }
+
+        private readonly BaseDataService<Product> MyContext = new BaseDataService<Product>();
+        private readonly GaleriaDBContext db = new GaleriaDBContext();
+       
         public ActionResult Index()
         {
-            var list = db.Get();
-            return View(list);
+            var products = MyContext.Get(null, null, "Artist");
+
+            return View(products);
         }
 
         [HttpGet]
         public ActionResult Create()
         {
+            ViewBag.ArtistId = new SelectList(db.Artist, "Id", "FullName");
             return View();
         }
 
         [HttpPost]
-        public ActionResult Create(Product Product)
+        public ActionResult Create(Product Product, HttpPostedFileBase file)
         {
-            this.CheckAuditPattern(Product, true);
-            var listModel = db.ValidateModel(Product);
-            if (ModelIsValid(listModel))
-                return View(Product);
             try
             {
-                db.Create(Product);
-                return RedirectToAction("Index");
+                if (file.ContentLength > 0)
+                {
+                    string filename = Path.GetFileName(file.FileName);
+                    string path = Path.Combine(Server.MapPath("/content/Products"), filename);
+                    file.SaveAs(path);
+
+                    Product.Image = filename;
+                    this.CheckAuditPattern(Product, true);
+                    db.Product.Add(Product);
+                    db.SaveChanges();
+
+                    return RedirectToAction("Index");
+                }
 
             }
+
             catch (Exception ex)
             {
-
                 Logger.Instance.LogException(ex);
-                ViewBag.MessageDanger = ex.Message;
-                return View(Product);
             }
-
+            ViewBag.ArtistId = new SelectList(db.Artist, "Id", "FullName", Product.ArtistId);
+            ViewBag.MessageDanger = "¡Error al cargar el Producto con su imagén.";
+            return View(Product);
         }
 
 
-
-        public ActionResult Edit(int? id)
+            public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var product = db.GetById(id.Value);
+            var product = db.Product.Find(id);
             if (product == null)
             {
                 return HttpNotFound();
             }
+            ViewBag.ArtistId = new SelectList(db.Artist, "Id", "FullName", product.ArtistId);
             return View(product);
         }
 
         [HttpPost]
-        public ActionResult Edit(Product Product, object Logger)
+        public ActionResult Edit(Product Product, HttpPostedFileBase file)
         {
-            this.CheckAuditPattern(Product);
-            var listModel = db.ValidateModel(Product);
-            if (ModelIsValid(listModel))
-                return View(Product);
             try
             {
-                db.Update(Product);
+                if (file != null && file.ContentLength > 0)
+                {
+                    string filename = Path.GetFileName(file.FileName);
+                    string path = Path.Combine(Server.MapPath("/content/products"), filename);
+                    file.SaveAs(path);
+                    Product.Image = filename;
+                }
+                this.CheckAuditPattern(Product, false);
+                db.Entry(Product).State = EntityState.Modified;
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
-
-                //Logger.Instance.LogException(ex);
-                ViewBag.MessageDanger = ex.Message;
-                return View(Product);
+                Logger.Instance.LogException(ex);
             }
+
+            ViewBag.ArtistId = new SelectList(db.Artist, "Id", "FullName", Product.ArtistId);
+            ViewBag.MessageDanger = "¡Error al modificar el Producto con su imagén.";
+            return View(Product);
         }
 
 
@@ -100,7 +115,7 @@ namespace norte.equipo5.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var Product = db.GetById(id.Value);
+            var Product = MyContext.GetById(id.Value);
             if (Product == null)
             {
                 return HttpNotFound();
@@ -108,20 +123,27 @@ namespace norte.equipo5.Controllers
             return View(Product);
         }
 
-        [HttpPost]
-        public ActionResult Delete(Product Product)
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int id)
         {
-            try
+            var product = db.Product.Find(id);
+            if (product == null)
             {
-                db.Delete(Product);
-                return RedirectToAction("Index");
+                return HttpNotFound();
             }
-            catch (Exception ex)
+            db.Product.Remove(product);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
             {
-                Logger.Instance.LogException(ex);
-                ViewBag.MessageDanger = ex.Message;
-                return View(Product);
+                db.Dispose();
             }
+            base.Dispose(disposing);
         }
     }
 }
+

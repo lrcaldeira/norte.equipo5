@@ -10,10 +10,16 @@ namespace norte.equipo5.Data.Model
 {
    public class Product: IdentityBase
     {
+        public Product()
+        {
+            Image = "empty.png";
 
+        }
+        [Required]
         [DisplayName("Titulo")]
         public string Title { get; set;}
 
+        [Required]
         [DisplayName("Descripción")]
         public string Description { get; set;}
 

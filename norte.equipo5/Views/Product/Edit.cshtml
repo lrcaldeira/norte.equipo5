@@ -9,10 +9,10 @@
 <div class="post">
     <h2 class="title"><a href="#"> Editar Producto</a></h2>
     <p class="byline">
-        <h4>Producto: @Model.Title</h4>
+        <h4>Producto </h4>
     </p>
     <div>
-        @using (Html.BeginForm())
+        @using (Html.BeginForm("Edit", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
         <div class="form-horizontal">
 
@@ -22,78 +22,83 @@
             @Html.HiddenFor(model => model.Id)
 
             <div class="form-group">
-                @Html.LabelFor(model => model.Title)
+                @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label" }))
                 <div>
-                    @Html.EditorFor(model => model.Title)
+                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
                 </div>
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.Description)
+                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label" }))
                 <div>
-                    @Html.EditorFor(model => model.Description)
+                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } }) )
                     @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
                 </div>
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.ArtistId)
+                @Html.LabelFor(model => model.ArtistId, htmlAttributes: new { @class = "control-label" })
                 <div>
-                    @Html.EditorFor(model => model.ArtistId)
+                    @Html.DropDownList("ArtistId", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ArtistId, "", new { @class = "text-danger" })
                 </div>
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.Image)
-                <div>
-                    @Html.EditorFor(model => model.Image)
-                </div>
-            </div>
+                <label class="control-label">Image actual: @Model.Image</label>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.Description)
                 <div>
-                    @Html.EditorFor(model => model.Description)
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.Price)
-                <div>
-                    @Html.EditorFor(model => model.Price)
+                    <img width="200" src="~/Content/Products/@Model.Image" alt="Imagen del producto.@Model.Image" class="form-control" title="@Model.Image" />
+                    @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
                 </div>
             </div>
 
 
             <div class="form-group">
-                @Html.LabelFor(model => model.QuantitySold)
-                <div>
-                    @Html.EditorFor(model => model.QuantitySold)
+                <div class="separator">
+                    @Html.TextBox("file", null, new { type = "file" })
                 </div>
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.AvgStars)
+                @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label" }))
                 <div>
-                    @Html.EditorFor(model => model.AvgStars)
+                    @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
                 </div>
+            </div>
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.QuantitySold, htmlAttributes: new { @class = "control-label" }))
+                <div>
+                    @Html.EditorFor(model => model.QuantitySold, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.QuantitySold, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.AvgStars, htmlAttributes: new { @class = "control-label" })
+                <div>
+                                           @Html.EditorFor(model => model.AvgStars, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.AvgStars, "", new { @class = "text-danger" })
+                    </div>
             </div>
 
             @Html.HiddenFor(model => model.CreatedOn)
             @Html.HiddenFor(model => model.CreatedBy)
-        </div>
 
-            <div class="form-group">
-                <div>
-                    <input type="submit" value="Guardar" />
-                </div>
+
+
+            <div>
+                <input type="submit" value="Guardar" class="btn-input" />
+                @Html.ActionLink("Volver a la lista", "Index", null, new { @class = "btn-input" }))
             </div>
-        }
 
-        <div>
-            @Html.ActionLink("Volver a la lista", "Index")
+            </div>
+            }
         </div>
-    </div>
+     
 </div>
 

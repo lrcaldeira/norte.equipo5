@@ -180,6 +180,7 @@
     <Compile Include="Controllers\OrderNumberController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\RatingController.cs" />
+    <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -212,6 +213,7 @@
     <Content Include="Content\img\Obras\senoritas-avignon-picasso.jpg" />
     <Content Include="Content\img\Obras\torero-alucinogeno-dali.jpg" />
     <Content Include="Content\img\Obras\ultima-cena-reproduccion.jpg" />
+    <Content Include="Content\Products\WIN_20191128_13_49_20_Pro.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -273,6 +275,10 @@
     <Content Include="Views\Product\Delete.cshtml" />
     <Content Include="Views\Product\Edit.cshtml" />
     <Content Include="Views\CartItem\Index.cshtml" />
+    <Content Include="Views\CartItem\Delete.cshtml" />
+    <Content Include="Views\Shop\Index.cshtml" />
+    <Content Include="Views\Shop\Buy.cshtml" />
+    <Content Include="Views\Rating\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -281,7 +287,6 @@
     <Folder Include="Views\OrderDetail\" />
     <Folder Include="Views\OrderNumber\" />
     <Folder Include="Views\Order\" />
-    <Folder Include="Views\Rating\" />
     <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>

@@ -15,12 +15,10 @@ namespace norte.equipo5.Data.Model
             this.OrderDetails = new HashSet<OrderDetail>();
         }
 
-        //[ForeignKey("User")]
         public int UserId { get; set; }
         public DateTime OrderDate { get; set; }
         public decimal TotalPrice { get; set; }
 
-        //[ForeignKey("OrderNumber")]
         public int OrderNumber { get; set; }
         public int ItemCount { get; set; }
 
