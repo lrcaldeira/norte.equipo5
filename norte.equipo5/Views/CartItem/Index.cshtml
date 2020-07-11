@@ -42,20 +42,25 @@
     }
 
 </table>
+<br />
+
+<p><h1>El total de la compra es $<span id="total"></span></h1></p>
 <p>Para continuar la compra click aquí</p>
-<span id="total"></span>
-
-<script>
-    $(document).ready(function () {
-
-        var total = 0;
-        $(".table tr").not(":first").each(function () {
-            var value = $(this).find("td:nth-child(3)").html();
-            total += value;
-        });
-        console.log(total);
-       
 
 
-    })
-</script>
+@section scripts{
+    <script>
+        $(document).ready(function () {
+
+            var total = 0;
+            $(".table tr").not(':first').each(function () {
+
+                var value = parseFloat($(this).find("td:nth-child(3)").html());
+                total = total + value;
+
+            });
+            $("#total").text(total);
+        })
+    </script>
+
+}

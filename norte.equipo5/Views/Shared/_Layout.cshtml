@@ -80,17 +80,6 @@
     @Scripts.Render("~/bundles/jquery")
     @RenderSection("scripts", required: false)
 
-    <script>
-        $(document).ready(function () {
 
-            var total = 0;
-            $(".table tr").each(function () {
-
-                var value = $(this).find(" td:nth-child(3)").html();
-                total += value;
-            });
-            console.log(total);
-        })
-    </script>
 </body >
 </html >
