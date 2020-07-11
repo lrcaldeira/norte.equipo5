@@ -19,7 +19,7 @@ namespace norte.equipo5.Controllers
             return View(products);
         }
 
-        public ActionResult Buy(int id)
+        public ActionResult Buy(Product product)
         {
             var cookie = "shop-arteconarte-cookie";
 
@@ -34,15 +34,17 @@ namespace norte.equipo5.Controllers
 
             var cartitem = new CartItem
             {
-                Price = 100,
-                ProductId = id,
-                Quantity = 2,
+
+            Price = product.Price,
+            ProductId = product.Id,
+            Quantity = 1,
             };
             this.CheckAuditPattern(cartitem, true);
 
             cart.CartItems = new List<CartItem>() { cartitem };
             db.Cart.Add(cart);
             db.SaveChanges();
+            
 
             return RedirectToAction("Index", "CartItem");
 

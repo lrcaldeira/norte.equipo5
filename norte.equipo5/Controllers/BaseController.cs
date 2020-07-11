@@ -30,6 +30,7 @@ namespace norte.equipo5.Controllers
             {
                 model.CreatedOn = DateTime.Now;
                 model.CreatedBy = userId;
+                
             }
             model.ChangedOn = DateTime.Now;
             model.ChangedBy = userId;

@@ -25,6 +25,7 @@ namespace norte.equipo5.Data.Model
         [DisplayName("Apellido")]
         public string LastName { get; set; }
 
+        [DisplayName("Vida")]
         public string LifeSpan { get; set; }
 
         [Required]
@@ -39,6 +40,7 @@ namespace norte.equipo5.Data.Model
         public int TotalProducts { get; set; }
 
         [NotMapped]
+        [DisplayName("Artista")]
         public string FullName { get { return FirstName + " " + LastName; } }
         public virtual ICollection<Product> Products { get; set; } //guarda todos los productos que tiene este artista//
     }

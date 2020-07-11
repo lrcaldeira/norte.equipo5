@@ -23,19 +23,22 @@
                 {
                     <li><a href="/Artist/Index/">Artistas</a></li>
                     <li><a href="/Product/Index">Productos</a></li>
-                    <li> <a href="/Shop/"> Comprar </a></li>
+                    <li> <a href="/Shop/">Shop </a></li>
                 }
 
                 @if (Request.IsAuthenticated && User.IsInRole("User"))
                 {
-                    <li> <a href="/Shop/"> Comprar </a></li>
-
+                    <li> <a href="/Shop/">Shop </a></li>
                 }
-                <li><a href="/Obra/Index">Galería</a></li>
                 <li><a href="/home/contact/">Contacto</a></li>
-                @*<li><a href="/home/about/">Acerca</a></li>*@
+                <li><a href="/home/about/">Acerca</a></li>
+                @Html.Partial("_LoginPartial")
+                @if (Request.IsAuthenticated && User.IsInRole("User"))
+                {
+                    <li id="carritomenu"> <a href="/Cartitem/Index"> <img id="carrito" src="~/Content/img/cart.png" /> </a></li>
+                }
             </ul>
-            @Html.Partial("_LoginPartial")
+
 
         </nav>
         <section id="page">
@@ -62,8 +65,8 @@
                             <li><a href="#">Van Gogh</a></li>
                         </ul>
                     </li>
-             
-                        
+
+
                 </ul>
             </article>
             <div style="clear: both; height: 1px"></div>
@@ -76,17 +79,18 @@
 
     @Scripts.Render("~/bundles/jquery")
     @RenderSection("scripts", required: false)
+
     <script>
-    
         $(document).ready(function () {
-            $('.MenuSelector li').each(function () {
-                $(this).find("a").removeClass('selectedMenu');
-            });
 
-            $('.MenuSelector li').click(function () {
-                $(this).find("a").addClass('selectedMenu');
-            });
-        });</script>
+            var total = 0;
+            $(".table tr").each(function () {
 
-</body>
-</html>
+                var value = $(this).find(" td:nth-child(3)").html();
+                total += value;
+            });
+            console.log(total);
+        })
+    </script>
+</body >
+</html >

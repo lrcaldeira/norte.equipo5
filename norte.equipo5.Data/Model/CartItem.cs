@@ -19,8 +19,8 @@ namespace norte.equipo5.Data.Model
 
         public int Quantity { get; set; }
 
-    
-
         public virtual Cart cart { get; set; }
-}
+
+
+    }
 }

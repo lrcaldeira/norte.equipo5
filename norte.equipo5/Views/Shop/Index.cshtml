@@ -25,35 +25,36 @@
         <th>
             @Html.DisplayNameFor(model => model.Price)
         </th>
-        <th></th>
+        <th>
+            <img id="carrito" src="~/Content/img/cart.png"/>
+        </th>
     </tr>
 
     @foreach (var item in Model)
     {
       
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Artist.FullName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                    @Html.DisplayFor(modelItem => item.Image)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Artist.FullName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Title)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Description)
+    </td>
+    <td>
+        <img src="~/Content/Products/@Html.DisplayFor(modelItem => item.Image)" class="form-control" />
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Price)
+    </td>
 
+    <td>
+        @Html.ActionLink("Añadir a carrito", "Buy", new norte.equipo5.Data.Model.Product{ Id =  item.Id,Price=item.Price,Title=item.Title})
+    </td>
 
-            <td>
-                @Html.ActionLink("Comprar", "Buy", new { id = item.Id })
-
-            </td>
-        </tr>
+</tr>
     }
 
 </table>

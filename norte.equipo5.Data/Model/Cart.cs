@@ -19,6 +19,6 @@ namespace norte.equipo5.Data.Model
         public int ItemCount { get; set; }
 
         public virtual ICollection<CartItem> CartItems { get; set; }
-
+        
     }
 }

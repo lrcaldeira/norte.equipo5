@@ -16,31 +16,20 @@
             <tr>
 
                 <th>
-
                     @Html.DisplayNameFor(model => model.Artist.FullName)
                 </th>
-
                 <th>
-
                     @Html.DisplayNameFor(model => model.Title)
                 </th>
-
                 <th>
                     @Html.DisplayNameFor(model => model.Description)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.ArtistId)
-                </th>
-                <th>
                     @Html.DisplayNameFor(model => model.Image)
-                  
 
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Price)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.QuantitySold)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.AvgStars)
@@ -65,17 +54,13 @@
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ArtistId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Image)
-               
+                
+                <img src="~/Content/Products/@Html.DisplayFor(modelItem => item.Image)" class="form-control"/>
+                
+
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QuantitySold)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.AvgStars)

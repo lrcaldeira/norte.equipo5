@@ -200,6 +200,7 @@
     <Content Include="Content\img\Artistas\foto-pablo-ruiz-picasso.jpg" />
     <Content Include="Content\img\Artistas\retrato-de-francisco-goya-por-vicente-lopez.jpg" />
     <Content Include="Content\img\Artistas\salvador-dali.jpg" />
+    <Content Include="Content\img\cart.png" />
     <Content Include="Content\img\Obras\almuerzo-de-remeros-renoir.jpg" />
     <Content Include="Content\img\Obras\campo-amapolas-monet.jpg" />
     <Content Include="Content\img\Obras\campo-trigo-van-gogh.jpg" />

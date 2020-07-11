@@ -13,7 +13,6 @@ namespace norte.equipo5.Data.Model
         public Product()
         {
             Image = "empty.png";
-
         }
         [Required]
         [DisplayName("Titulo")]
@@ -36,7 +35,7 @@ namespace norte.equipo5.Data.Model
         [DisplayName("Cantidad Vendidos")]
         public int QuantitySold { get; set;}
 
-        [DisplayName("Calificación Promedio")]
+        [DisplayName("Calificación")]
         public double AvgStars { get; set; }
 
         public virtual Artist Artist { get; set; } //el artista que es el producto//
