@@ -377,6 +377,56 @@ img {
 
 }
 
-#total{
-        
+.imageColumn{
+    float:left;
+}
+
+
+#saveButton {
+    text-align: center;
+    width: 70px;
+    height: 25px;
+    border: 1px solid #52231b;
+    color: white;
+    background: #C11212;
+    outline-width: 0;
+    margin-right: 30px;
+    margin-bottom: 30px;
+}
+
+/*********************Estrelas***************/
+.star-rating.five:after {
+    font-family: FontAwesome;
+    content: "\f005\f005\f005\f005\f005";
+    padding-left: 10px;
+}
+
+.star-rating.four:after {
+    font-family: FontAwesome;
+    content: "\f005\f005\f005\f005\f006";
+    padding-left: 10px;
+}
+
+.star-rating.three:after {
+    font-family: FontAwesome;
+    content: "\f005\f005\f005\f006\f006";
+    padding-left: 10px;
+}
+
+.star-rating.two:after {
+    font-family: FontAwesome;
+    content: "\f005\f005\f006\f006\f006";
+    padding-left: 10px;
+}
+
+.star-rating.one:after {
+    font-family: FontAwesome;
+    content: "\f005\f006\f006\f006\f006";
+    padding-left: 10px;
+}
+
+.star-rating.none:after {
+    font-family: FontAwesome;
+    content: "\f006\f006\f006\f006\f006";
+    padding-left: 10px;
 }

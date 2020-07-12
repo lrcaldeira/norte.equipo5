@@ -4,55 +4,23 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+<h3>Eliminar del carrito</h3>
 
-<h3>Eliminar</h3>
 <div>
-    <h4>CartItem</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            
-            @Html.DisplayNameFor(model => model.cart.Cookie)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.cart.Cookie)
-        </dd>
+    <p>
+        Estas seguro que desea eliminar el producto?
+    </p>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ProductId)
-        </dt>
+    @using (Html.BeginForm())
+    {
 
-        <dd>
-            @Html.DisplayFor(model => model.ProductId)
-        </dd>
+<div class="form-actions no-color">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Quantity)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Quantity)
-        </dd>
-
-       
-
-    </dl>
-
-    @using (Html.BeginForm()) {
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Eliminar" class="btn btn-default" /> 
-            @Html.ActionLink("Lista", "Index")
-        </div>
+    <input type="submit" value="Eliminar" />        
+    <br />
+    @Html.ActionLink("Volver a la lista", "Index")
+</div>
     }
 </div>

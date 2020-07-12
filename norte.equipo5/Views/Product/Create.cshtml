@@ -2,6 +2,7 @@
 
 @{ ViewBag.Title = "Nuevo Producto";}
 
+
 <div class="post">
     <h2 class="title"><a href="#"> Nuevo Producto</a></h2>
     <p class="byline">
@@ -10,66 +11,77 @@
     <div>
         @using (Html.BeginForm("Create", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
-            <div class="form">
-                <hr />
-                <span class="text-danger">@ViewBag.MessageDanger</span>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Title)
-                    <div>
-                        @Html.EditorFor(model => model.Title)
-                    </div>
+        <div class="form">
+            <hr />
+            <span class="text-danger">@ViewBag.MessageDanger</span>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Title)
+                <div>
+                    @Html.EditorFor(model => model.Title)
                 </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Description)
-                    <div>
-                        @Html.EditorFor(model => model.Description)
-                    </div>
+            </div>
+            <br />
+            <div class="form-group">
+                @Html.LabelFor(model => model.Description)
+                <div>
+                    @Html.EditorFor(model => model.Description)
                 </div>
-                <div class="form-group">
+            </div>
+            <br />
+            <div class="form-group">
+                <div>
+                    Artista
                     <div>
-                        <p> Artista </p>
                         @Html.DropDownList("ArtistID", null, htmlAttributes: new { @class = "drop-down-list" })
-
-                    </div>
-
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Image)
-                    <div>
-                        @Html.TextBox("file", null, new { type = "file", required = "required" })
-
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Price)
-                    <div>
-                        @Html.EditorFor(model => model.Price)
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.QuantitySold)
-                    <div>
-                        @Html.EditorFor(model => model.QuantitySold)
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.AvgStars)
-                    <div>
-                        @Html.EditorFor(model => model.AvgStars)
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div>
-                        <input type="submit" value="Guardar" class="btn-input" />
                     </div>
                 </div>
             </div>
+            <br />
+            <div class="form-group">
+                @Html.LabelFor(model => model.Price)
+                <div>
+                    @Html.EditorFor(model => model.Price)
+                </div>
+            </div>
+            <br />
+            <div class="form-group">
+                @Html.LabelFor(model => model.QuantitySold)
+                <div>
+                    @Html.EditorFor(model => model.QuantitySold)
+                </div>
+            </div>
+            <br />
+            <div class="form-group">
+                @Html.LabelFor(model => model.AvgStars)
+
+                <div>
+                    @Html.TextBoxFor(model => model.AvgStars, new { @type = "number", min = "0", max = "5" })
+                </div>
+            </div>
+            <br />
+            <div class="form-group">
+                @Html.LabelFor(model => model.Image)
+                <div>
+                    @Html.TextBox("file", null, new { type = "file", required = "required" })
+
+                </div>
+            </div>
+            <br />
+            <hr />
+            <br />
+            <div class="form-group">
+                <div>
+                    <input type="submit" value="Guardar" class="btn-input" id="saveButton" />
+                    @Html.ActionLink("Volver a la lista", "Index")
+                </div>
+            </div>
+        </div>
         }
     </div>
-    <div>
-        @Html.ActionLink("Volver a la lista", "Index")
-    </div>
-
 </div>
+
+@section scripts{
+    <script>
+    </script>
+    
+    }
