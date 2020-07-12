@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "checkout";
+}
+<link href="~/Content/contacto.css" rel="stylesheet" />
+<h2>Finalizar Compra</h2>
+<br>
+<hr>
+<br>
+<h3>Información de Facturación</h3>
+<br>
+
+<form id="formContact">
+    <div class="contactColumn">
+        <input type="text" id="nombreContacto" placeholder="Nombre" maxlength="50"><br />
+        <input type="text" id="apellidoContacto" placeholder="Apellido" maxlength="100"><br />
+        <input type="text" id="direccion" placeholder="Dirección" maxlength="100"><br />
+        <input type="text" id="telefonoContacto" placeholder="Teléfono" maxlength="10"><br />
+
+        <br>
+        <h3>Tipo de Pago</h3>
+        <hr>
+        <br>
+        <input type="radio" id="debito" name="tarjeta" value="debito">
+        <label for="debito">Débito</label><br>
+        <input type="radio" id="credito" name="tarjeta" value="credito">
+        <label for="credito">Crédito</label><br>
+        <br>
+        <hr>
+        <br>
+        <h3>Datos de la tarjeta</h3>
+        <br>
+
+        <input type="text" id="apellidoContacto" placeholder="Nombre como aparece en la tarjeta" maxlength="100"><br />
+        <input type="text" id="telefonoContacto" placeholder="Número de Tarjeta" maxlength="10"><br />
+        <input type="text" id="apellidoContacto" placeholder="Fecha de expiración" maxlength="100"><br />
+        <input type="text" id="telefonoContacto" placeholder="CVC" maxlength="10"><br />
+
+        <h3>Total a pagar $<span id="result"></span></h3>
+        <br>
+        <hr>
+        <br>
+        <input type="submit" value="Pagar" class="btn-input" id="saveButton" />
+        <br>
+    </div>
+
+</form>
+
+
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            document.getElementById("result").innerHTML = localStorage.getItem("total");
+        })
+    </script>
+}

@@ -9,7 +9,7 @@
     float: left;
 }
 
-.contactColumn input {
+.contactColumn input[type=text] {
     width:250px;
     display: block;
     border: 1px solid #52231b;

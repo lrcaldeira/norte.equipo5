@@ -24,6 +24,12 @@ namespace norte.equipo5.Controllers
             return View(cartItem);
         }
 
+        public ActionResult checkout(string Total)
+        {
+            var cartItem = db.CartItem.Include(c => c.cart);
+            return View(cartItem);
+        }
+
         public ActionResult Delete(int? id)
         {
             if (id == null)

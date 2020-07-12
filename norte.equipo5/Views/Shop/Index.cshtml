@@ -4,6 +4,7 @@
 @{
     ViewBag.Title = "Index";
 }
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <h2>Lista de productos para comprar</h2>
 
@@ -25,36 +26,78 @@
         <th>
             @Html.DisplayNameFor(model => model.Price)
         </th>
+
         <th>
-            <img id="carrito" src="~/Content/img/cart.png"/>
+            @Html.DisplayNameFor(model => model.AvgStars)
+        </th>
+
+        <th>
+            <img id="carrito" src="~/Content/img/cart.png" />
         </th>
     </tr>
 
     @foreach (var item in Model)
     {
-      
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.Artist.FullName)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Title)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Description)
-    </td>
-    <td>
-        <img src="~/Content/Products/@Html.DisplayFor(modelItem => item.Image)" class="form-control" />
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Price)
-    </td>
 
-    <td>
-        @Html.ActionLink("Añadir a carrito", "Buy", new norte.equipo5.Data.Model.Product{ Id =  item.Id,Price=item.Price,Title=item.Title})
-    </td>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Artist.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                <div class="zoom">
+                    <img src="~/Content/Products/@Html.DisplayFor(modelItem => item.Image)" class="form-control" />
+                </div>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
 
-</tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AvgStars)
+            </td>
+
+            <td>
+                @Html.ActionLink("Añadir a carrito", "Buy", new norte.equipo5.Data.Model.Product { Id = item.Id, Price = item.Price, Title = item.Title })
+            </td>
+
+        </tr>
     }
 
 </table>
+@section scripts{
+    <script>
+
+        $(document).ready(function () {
+            $(".table tr").not(':first').each(function () {
+
+                var value = Math.round(parseFloat($(this).find("td:nth-child(6)").html()));
+
+                if (value >= 5) {
+                    $(this).find("td:nth-child(6)").html("<span class='star-rating five'></span>");
+                }
+                else if (value == 4) {
+                    $(this).find("td:nth-child(6)").html("<span class='star-rating four'></span>");
+                }
+                else if (value == 3) {
+                    $(this).find("td:nth-child(6)").html("<span class='star-rating three'></span>");
+                }
+                else if (value == 2) {
+                    $(this).find("td:nth-child(6)").html("<span class='star-rating two'></span>");
+                }
+                else if (value == 1) {
+                    $(this).find("td:nth-child(6)").html("<span class='star-rating one'></span>");
+                }
+                else {
+                    $(this).find("td:nth-child(6)").html("<span class='star-rating none'></span>");
+                }
+            });
+        });
+    </script>
+
+}

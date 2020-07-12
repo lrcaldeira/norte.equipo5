@@ -45,22 +45,24 @@
 <br />
 
 <p><h1>El total de la compra es $<span id="total"></span></h1></p>
-<p>Para continuar la compra click aquí</p>
+<p>
+    Para continuar la compra click @Html.ActionLink("aquí", "checkout")
+</p>
 
 
-@section scripts{
-    <script>
-        $(document).ready(function () {
+    @section scripts{
+        <script>
+            $(document).ready(function () {
+                var total = 0;
+                $(".table tr").not(':first').each(function () {
+                    var value = parseFloat($(this).find("td:nth-child(3)").html());
+                    total = total + value;
+                });
+                $("#total").text(total);
 
-            var total = 0;
-            $(".table tr").not(':first').each(function () {
+                localStorage.setItem("total", total);
+            })
+            
+        </script>
+    }
 
-                var value = parseFloat($(this).find("td:nth-child(3)").html());
-                total = total + value;
-
-            });
-            $("#total").text(total);
-        })
-    </script>
-
-}
